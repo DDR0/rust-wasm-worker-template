@@ -10,7 +10,11 @@ const appConfig = {
 	entry: "./app/main.mjs",
 	devtool: "cheap-source-map",
 	devServer: {
-		contentBase: dist
+		contentBase: dist,
+		headers: {
+			"Cross-Origin-Opener-Policy": "same-origin",
+			"Cross-Origin-Embedder-Policy": "require-corp",
+		},
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
